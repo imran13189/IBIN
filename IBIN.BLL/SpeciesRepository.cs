@@ -11,7 +11,16 @@ namespace IBIN.BLL
     {
         public Species AddSpecies(Species model)
         {
-            _db.Species.Add(model);
+            if (model.SpeciesId == 0)
+            {
+                _db.Species.Add(model);
+                
+            }
+            else
+            {
+                Species species = _db.Species.Find(model.SpeciesId);
+                species.FileName = model.FileName;
+            }
             _db.SaveChanges();
             return model;
         }
@@ -22,7 +31,14 @@ namespace IBIN.BLL
         }
         public List<Species> GetSpecies(DataTableRequest request)
         {
-            return _db.Species.ToList();
+            try
+            {
+                return _db.Species.ToList();
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

@@ -30,7 +30,7 @@ namespace IBIN.Controllers
         public ActionResult AddSpecies(Species model, HttpPostedFileBase SpeciesFile)
         {
             SpeciesRepository _repo = new SpeciesRepository();
-            _repo.AddSpecies(model);
+            model=_repo.AddSpecies(model);
             String nFileName = "";//, nLicenseCopy = "", nInsuranceCopy = "", nOtherAttachment = "";
             if ((SpeciesFile != null) && (SpeciesFile.ContentLength > 0))
             {
@@ -43,7 +43,7 @@ namespace IBIN.Controllers
                 {
                     string extension = Path.GetExtension(SpeciesFile.FileName);
                     nFileName = "PC_" + model.SpeciesId + extension;
-                    var DirectoryPath = Server.MapPath("~/UploadedFiles/Customer/" + model.SpeciesId + "/PassportCopy");
+                    var DirectoryPath = Server.MapPath("~/UploadedFiles/Species/" + model.SpeciesId + "/SpeciesFile");
                     var path = Path.Combine(DirectoryPath, System.IO.Path.GetFileName(nFileName));
 
                     DirectoryInfo dInfo = new DirectoryInfo(DirectoryPath);
@@ -51,7 +51,7 @@ namespace IBIN.Controllers
                     { dfile.Delete(); }
                     SpeciesFile.SaveAs(path);
                     model.FileName = nFileName;
-                    //res = this._car.EditCar(objCar);
+                    _repo.AddSpecies(model);
                 }
 
             }

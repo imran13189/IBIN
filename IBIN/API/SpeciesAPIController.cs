@@ -19,16 +19,17 @@ namespace IBIN.API
         [HttpPost]
         public dynamic GetSpecies(DataTableRequest model)
         {
+            
             SpeciesRepository _repo = new SpeciesRepository();
             model.dataList = _repo.GetSpecies(model);
-          
+            var data = model.dataList.OrderBy(x => x.SpeciesId).Skip(model.start).Take(model.length);
             return Json(new
             {
                 // this is what datatables wants sending back
                 draw = model.draw,
                 recordsTotal = model.dataList.Count,
                 recordsFiltered = model.dataList.Count,
-                data = model.dataList
+                data = data
             });
 
         }
