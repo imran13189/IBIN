@@ -1,0 +1,48 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Species";
+}
+
+<h2>Species</h2>
+<div class="row">
+    @Html.ActionLink("AddSpecies","AddSpecies", "Admin")
+    </div>
+    <div class="row">
+        <table id="species" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+
+                </tr>
+            </thead>
+
+        </table>
+
+        <script>
+    $(document).ready(function () {
+        $('#species').DataTable({
+
+
+
+             "proccessing": true,
+    "serverSide": true,
+    "ajax": {
+            url: $_GetSpecies,
+            type: 'POST'
+        },
+        "language": {
+            "search": "",
+            "searchPlaceholder": "Search..."
+        },
+       "columns": [
+            { "data": "SpeciesName" },
+            { "data": "FileName" }
+        ]
+        });
+    });
+        </script>
+    </div>
+

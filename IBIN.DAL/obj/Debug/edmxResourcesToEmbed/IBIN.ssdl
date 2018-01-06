@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IBINModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Chemical">
+    <Key>
+      <PropertyRef Name="ChemicalId" />
+    </Key>
+    <Property Name="ChemicalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChemicalName" Type="varchar" MaxLength="255" />
+    <Property Name="FileName" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Species">
+    <Key>
+      <PropertyRef Name="SpeciesId" />
+    </Key>
+    <Property Name="SpeciesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpeciesName" Type="varchar" MaxLength="255" />
+    <Property Name="FileName" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="IBINModelStoreContainer">
+    <EntitySet Name="Chemical" EntityType="Self.Chemical" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Species" EntityType="Self.Species" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

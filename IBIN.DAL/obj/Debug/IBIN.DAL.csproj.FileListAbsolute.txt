@@ -1,0 +1,10 @@
+c:\Users\Imran\documents\visual studio 2015\Projects\IBIN\IBIN.DAL\bin\Debug\IBIN.DAL.dll.config
+c:\Users\Imran\documents\visual studio 2015\Projects\IBIN\IBIN.DAL\bin\Debug\IBIN.DAL.dll
+c:\Users\Imran\documents\visual studio 2015\Projects\IBIN\IBIN.DAL\bin\Debug\IBIN.DAL.pdb
+c:\Users\Imran\documents\visual studio 2015\Projects\IBIN\IBIN.DAL\bin\Debug\EntityFramework.dll
+c:\Users\Imran\documents\visual studio 2015\Projects\IBIN\IBIN.DAL\bin\Debug\EntityFramework.SqlServer.dll
+c:\Users\Imran\documents\visual studio 2015\Projects\IBIN\IBIN.DAL\bin\Debug\EntityFramework.xml
+c:\Users\Imran\documents\visual studio 2015\Projects\IBIN\IBIN.DAL\bin\Debug\EntityFramework.SqlServer.xml
+c:\Users\Imran\documents\visual studio 2015\Projects\IBIN\IBIN.DAL\obj\Debug\IBIN.DAL.csprojResolveAssemblyReference.cache
+c:\Users\Imran\documents\visual studio 2015\Projects\IBIN\IBIN.DAL\obj\Debug\IBIN.DAL.dll
+c:\Users\Imran\documents\visual studio 2015\Projects\IBIN\IBIN.DAL\obj\Debug\IBIN.DAL.pdb
