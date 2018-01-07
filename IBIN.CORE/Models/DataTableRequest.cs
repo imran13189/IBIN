@@ -14,8 +14,10 @@ namespace IBIN.CORE.Models
         public int length { get; set; }
         public List<Column> columns { get; set; }
         public Search search { get; set; }
-      
-        public List<Species> dataList { get; set; }
+
+        public List<Species> data { get; set; }
+
+        public int recordsTotal { get; set; }
     }
 
     public class Column

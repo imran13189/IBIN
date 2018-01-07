@@ -1,0 +1,36 @@
+﻿@model IBIN.DAL.Species
+@{
+    ViewBag.Title = "AddSpecies";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>AddSpecies</h2>
+@using (Html.BeginForm("AddSpecies", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", @id = "formCarType", @class = "form-horizontal" }))
+{
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SpeciesName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-3">
+            @Html.TextBoxFor(model => model.SpeciesName, new { @class = "form-control input-lg" })
+
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FileName, new { @class = "col-md-2 control-label" })
+
+        <div class="col-md-3">
+            <input type="file" id="SpeciesFile" name="SpeciesFile" />
+        </div>
+
+        <div class="col-md-3">
+<input type="submit" value="Save" />
+        </div>
+
+    </div>
+    
+
+}

@@ -1,0 +1,68 @@
+﻿
+<div class="row">
+    <div class="col-sm-3">
+        <div class="lt-cnt">
+            <h5>Specific Search</h5>
+
+            <form>
+                <label>Scientific name</label>
+                <input type="text">
+
+                <label>Scientific name</label>
+                <input type="text">
+
+                <label>Scientific name</label>
+                <input type="text">
+            </form>
+        </div>
+    </div>
+
+
+    <!-- start_gallery-->
+
+
+
+    <div class="col-sm-9" id="gallery">
+
+
+       
+
+        
+    </div>
+
+    <!--end_gallery-->
+
+
+</div>
+
+<script>
+    $(document).ready(function () {
+      PagerClick(1);
+    });
+
+    function PagerClick(i) {
+        var request = { draw: i, start: (i-1) * 10, length: 10 }
+        $.ajax({
+            type: "POST",
+            url: $_GetSpecies,
+            //dataType: 'json',
+            //contentType: "application/json; charset=utf-8",
+            data: request,
+            success: function (resultdata) {
+                GetListPage(resultdata)
+            }
+        });
+    }
+
+    function GetListPage(model) {
+        $.ajax({
+            type: "POST",
+            url: $_GetSpeciesList,
+            data: { model: model },
+            success: function (resultdata) {
+                $("#gallery").html(resultdata);
+            }
+        });
+    }
+</script>
+

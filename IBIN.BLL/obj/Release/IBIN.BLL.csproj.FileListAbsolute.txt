@@ -1,0 +1,14 @@
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\bin\Release\IBIN.BLL.dll.config
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\bin\Release\IBIN.BLL.dll
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\bin\Release\IBIN.BLL.pdb
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\bin\Release\EntityFramework.dll
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\bin\Release\IBIN.CORE.dll
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\bin\Release\IBIN.DAL.dll
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\bin\Release\IBIN.CORE.pdb
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\bin\Release\IBIN.DAL.pdb
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\bin\Release\EntityFramework.xml
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\obj\Release\IBIN.BLL.csprojResolveAssemblyReference.cache
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\obj\Release\IBIN.BLL.dll
+C:\Users\Imran\Documents\Visual Studio 2015\Projects\IBRIN\IBIN.BLL\obj\Release\IBIN.BLL.pdb

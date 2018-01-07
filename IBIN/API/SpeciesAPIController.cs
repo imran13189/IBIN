@@ -17,20 +17,28 @@ namespace IBIN.API
     public class SpeciesAPIController : ApiController
     {
         [HttpPost]
-        public dynamic GetSpecies(DataTableRequest model)
+        public dynamic GetSpecies([FromBody]DataTableRequest model)
         {
-            
-            SpeciesRepository _repo = new SpeciesRepository();
-            model.dataList = _repo.GetSpecies(model);
-            var data = model.dataList.OrderBy(x => x.SpeciesId).Skip(model.start).Take(model.length);
-            return Json(new
+            try
             {
-                // this is what datatables wants sending back
-                draw = model.draw,
-                recordsTotal = model.dataList.Count,
-                recordsFiltered = model.dataList.Count,
-                data = data
-            });
+                SpeciesRepository _repo = new SpeciesRepository();
+                model.data = _repo.GetSpecies();
+                var data = model.data.OrderBy(x => x.SpeciesId).Skip(model.start).Take(model.length);
+                return Json(new
+                {
+                    // this is what datatables wants sending back
+                    draw = model.draw,
+                    recordsTotal = model.data.Count,
+                    recordsFiltered = model.data.Count,
+                    data = data,
+                    length=model.length
+                });
+              
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
 
         }
 

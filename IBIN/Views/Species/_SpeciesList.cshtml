@@ -1,0 +1,67 @@
+﻿@model IBIN.CORE.Models.DataTableRequest
+
+@{
+    Layout = null;
+}
+
+<div class="row" style="border-bottom:1px solid #ccc; ">
+    <h2 class="gallery_spcies ">Species List</h2>
+</div>
+
+
+@foreach (var item in Model.data)
+{
+
+    <div class="col-sm-3 col-xs-6">
+        <div class="zoom">
+
+            <a herf="#">
+                <img class="img-responsive" src="~/UploadedFiles/SpeciesFile/@item.FileName" style="border: 10px solid #ddd;" />
+                <h4 class="punica">@item.SpeciesName</h4>
+            </a>
+        </div>
+    </div>
+}
+
+@*<div class="row">
+    <div style="float: right;">
+        <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+        </ul>
+    </div>
+</div>*@
+
+
+<div class="row">
+    <div style="float: right;">
+        <ul class="pagination">
+            @for (int i = 1; i <= ViewBag.PageCount; i++)
+            {
+              
+                    if (i != ViewBag.CurrentPageIndex)
+                    {
+
+                    <li><a href="javascript:PagerClick(@i);">@i</a></li>
+                }
+                else
+                {
+                    <li><a href="javascript:PagerClick(@i);">@i</a></li>
+                }
+
+            }
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+    });
+
+   
+</script>

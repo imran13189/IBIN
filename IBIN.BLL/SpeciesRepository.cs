@@ -19,6 +19,7 @@ namespace IBIN.BLL
             else
             {
                 Species species = _db.Species.Find(model.SpeciesId);
+                species.SpeciesName = model.SpeciesName;
                 species.FileName = model.FileName;
             }
             _db.SaveChanges();
@@ -29,7 +30,7 @@ namespace IBIN.BLL
             _db.Species.Remove(model);
             return model;
         }
-        public List<Species> GetSpecies(DataTableRequest request)
+        public List<Species> GetSpecies()
         {
             try
             {
@@ -39,6 +40,12 @@ namespace IBIN.BLL
             {
                 throw e;
             }
+        }
+
+
+        public Species GetSpeciesDetail(int SpeciesId)
+        {
+            return _db.Species.FirstOrDefault(x => x.SpeciesId == SpeciesId);
         }
     }
 }

@@ -22,8 +22,12 @@ namespace IBIN.Controllers
             return View();
         }
 
-        public ActionResult AddSpecies()
+        public ActionResult AddSpecies(int id=0)
         {
+            if(id>0)
+            {
+                return View(new SpeciesRepository().GetSpeciesDetail(id));
+            }
             return View();
         }
         [HttpPost]
@@ -34,28 +38,36 @@ namespace IBIN.Controllers
             String nFileName = "";//, nLicenseCopy = "", nInsuranceCopy = "", nOtherAttachment = "";
             if ((SpeciesFile != null) && (SpeciesFile.ContentLength > 0))
             {
-                if (!(Directory.Exists(Server.MapPath("~/UploadedFiles/Species/" + model.SpeciesId + "/SpeciesFile"))))
+                if (!(Directory.Exists(Server.MapPath("~/UploadedFiles/SpeciesFile"))))
                 {
-                    Directory.CreateDirectory(Server.MapPath("~/UploadedFiles/Species/" + model.SpeciesId + "/SpeciesFile"));
+                    Directory.CreateDirectory(Server.MapPath("~/UploadedFiles/SpeciesFile"));
                 }
 
                 if ((SpeciesFile != null) && (SpeciesFile.ContentLength > 0))
                 {
                     string extension = Path.GetExtension(SpeciesFile.FileName);
                     nFileName = "PC_" + model.SpeciesId + extension;
-                    var DirectoryPath = Server.MapPath("~/UploadedFiles/Species/" + model.SpeciesId + "/SpeciesFile");
+                    var DirectoryPath = Server.MapPath("~/UploadedFiles/SpeciesFile");
                     var path = Path.Combine(DirectoryPath, System.IO.Path.GetFileName(nFileName));
 
                     DirectoryInfo dInfo = new DirectoryInfo(DirectoryPath);
+
                     foreach (FileInfo dfile in dInfo.GetFiles())
-                    { dfile.Delete(); }
+                    {
+                        if (dfile.FullName == nFileName)
+                        {
+                            dfile.Delete();
+                            break;
+                        }
+
+                    }
                     SpeciesFile.SaveAs(path);
                     model.FileName = nFileName;
                     _repo.AddSpecies(model);
                 }
 
             }
-            return View();
+            return RedirectToAction("Species");
         }
 
 
