@@ -16,8 +16,17 @@
     <Property Name="SpeciesName" Type="varchar" MaxLength="255" />
     <Property Name="FileName" Type="varchar(max)" />
   </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+  </EntityType>
   <EntityContainer Name="IBINModelStoreContainer">
     <EntitySet Name="Chemical" EntityType="Self.Chemical" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Species" EntityType="Self.Species" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

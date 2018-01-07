@@ -15,6 +15,7 @@
                 <tr>
                     <th>First name</th>
                     <th>Last name</th>
+                    <th>Edit</th>
 
                 </tr>
             </thead>
@@ -23,24 +24,30 @@
 
         <script>
     $(document).ready(function () {
-        $('#species').DataTable({
+        $('#species').dataTable({
 
+            "proccessing": true,
+            "serverSide": true,
+            "ajax": {
+                "url": $_GetSpecies,
+                "type": 'POST'
+            },
+            "language": {
+                "search": "",
+                "searchPlaceholder": "Search..."
+            },
+            "columns": [
+                 { "data": "SpeciesName" },
+                 { "data": "FileName" },
+                 {
+                     "data": "SpeciesId", "render": function (data, type, row) {
 
+                         return '<a href="/Admin/AddSpecies/' + row.SpeciesId + '">Edit</a>';
+                     }
+                 },
+],
 
-             "proccessing": true,
-    "serverSide": true,
-    "ajax": {
-            url: $_GetSpecies,
-            type: 'POST'
-        },
-        "language": {
-            "search": "",
-            "searchPlaceholder": "Search..."
-        },
-       "columns": [
-            { "data": "SpeciesName" },
-            { "data": "FileName" }
-        ]
+       
         });
     });
         </script>

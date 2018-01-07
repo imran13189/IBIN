@@ -19,5 +19,14 @@
   <EntityContainer Name="IBINEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Chemicals" EntityType="Self.Chemical" />
     <EntitySet Name="Species" EntityType="Self.Species" />
+    <EntitySet Name="Users" EntityType="IBINModel.User" />
   </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

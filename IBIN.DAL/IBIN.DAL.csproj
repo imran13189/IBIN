@@ -73,6 +73,9 @@
     <Compile Include="Species.cs">
       <DependentUpon>IBIN.tt</DependentUpon>
     </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>IBIN.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="IBIN.edmx">

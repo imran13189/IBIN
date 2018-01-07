@@ -19,16 +19,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/02/2015 22:02:26</publishTime>
     </File>
     <File Include="bin/IBIN.BLL.dll">
-      <publishTime>01/07/2018 03:34:30</publishTime>
+      <publishTime>01/07/2018 21:19:41</publishTime>
     </File>
     <File Include="bin/IBIN.CORE.dll">
-      <publishTime>01/07/2018 03:34:30</publishTime>
+      <publishTime>01/07/2018 21:19:40</publishTime>
     </File>
     <File Include="bin/IBIN.DAL.dll">
-      <publishTime>01/07/2018 03:34:30</publishTime>
+      <publishTime>01/07/2018 21:19:38</publishTime>
     </File>
     <File Include="bin/IBIN.dll">
-      <publishTime>01/07/2018 03:34:36</publishTime>
+      <publishTime>01/07/2018 21:19:53</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>06/15/2015 02:06:24</publishTime>
@@ -373,10 +373,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/07/2018 00:51:25</publishTime>
     </File>
     <File Include="Views/Admin/AddSpecies.cshtml">
-      <publishTime>01/07/2018 02:55:20</publishTime>
+      <publishTime>01/07/2018 12:44:33</publishTime>
+    </File>
+    <File Include="Views/Admin/Index.cshtml">
+      <publishTime>01/07/2018 16:43:09</publishTime>
     </File>
     <File Include="Views/Admin/Species.cshtml">
-      <publishTime>01/07/2018 02:32:14</publishTime>
+      <publishTime>01/07/2018 12:54:05</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>01/06/2018 22:28:31</publishTime>
@@ -385,19 +388,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/06/2018 22:28:31</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>01/06/2018 23:36:18</publishTime>
+      <publishTime>01/07/2018 09:59:09</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>01/06/2018 22:28:31</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/06/2018 23:12:23</publishTime>
+      <publishTime>01/07/2018 17:24:32</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAdmin.cshtml">
-      <publishTime>01/07/2018 02:29:52</publishTime>
+      <publishTime>01/07/2018 10:53:02</publishTime>
     </File>
     <File Include="Views/Shared/_UrlVariables.cshtml">
-      <publishTime>01/07/2018 02:11:47</publishTime>
+      <publishTime>01/07/2018 10:35:56</publishTime>
+    </File>
+    <File Include="Views/Shared/_UrlVariablesAdmin.cshtml">
+      <publishTime>01/07/2018 10:49:40</publishTime>
+    </File>
+    <File Include="Views/Species/Index.cshtml">
+      <publishTime>01/07/2018 17:33:16</publishTime>
+    </File>
+    <File Include="Views/Species/_SpeciesList.cshtml">
+      <publishTime>01/07/2018 17:16:59</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>01/06/2018 22:28:31</publishTime>
@@ -406,7 +418,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/06/2018 22:28:31</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/07/2018 03:34:37</publishTime>
+      <publishTime>01/07/2018 21:19:56</publishTime>
     </File>
   </ItemGroup>
 </Project>

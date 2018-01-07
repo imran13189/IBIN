@@ -25,7 +25,7 @@
 
 
     <script src="~/Scripts/js/jquery-3.2.1.min.js"></script>
-    <script src="~/Scriptsjs/jquery.easy_slides.js"></script>
+    <script src="~/Scripts/js/jquery.easy_slides.js"></script>
     <script type="text/javascript">
           $(document).ready(function (e) {
               $('.has-sub').click(function () {
@@ -184,7 +184,7 @@
         }
     </style>
 
-
+    @{ Html.RenderPartial("_UrlVariables");  }
 </head>
 <body class="homepage">
 
@@ -243,8 +243,10 @@
             </div>
         </div><!--container end-->
     </div><!--/nav-->
-
-    @RenderBody()
-
-    </body>
+    <div class="container-fluid">
+        <div class="container">
+            @RenderBody()
+            </div>
+        </div>
+</body>
 </html>

@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using IBIN.DAL;
 using IBIN.BLL;
+using System.Web.Security;
+using IBIN.Filters;
 
 namespace IBIN.Controllers
 {
@@ -16,12 +18,12 @@ namespace IBIN.Controllers
         {
             return View();
         }
-
+        [Authenticated]
         public ActionResult Species()
         {
             return View();
         }
-
+        [Authenticated]
         public ActionResult AddSpecies(int id=0)
         {
             if(id>0)
@@ -30,6 +32,8 @@ namespace IBIN.Controllers
             }
             return View();
         }
+
+        [Authenticated]
         [HttpPost]
         public ActionResult AddSpecies(Species model, HttpPostedFileBase SpeciesFile)
         {
@@ -54,7 +58,7 @@ namespace IBIN.Controllers
 
                     foreach (FileInfo dfile in dInfo.GetFiles())
                     {
-                        if (dfile.FullName == nFileName)
+                        if (dfile.Name == nFileName)
                         {
                             dfile.Delete();
                             break;
@@ -70,6 +74,35 @@ namespace IBIN.Controllers
             return RedirectToAction("Species");
         }
 
+        [HttpPost]
+        public ActionResult Login(string UserName, string Password)
+        {
+            UserRepository _repo = new UserRepository();
+            User model= _repo.Login(UserName, Password);
+            if(model!=null)
+            {
+                FormsAuthentication.SetAuthCookie(model.UserName, true);
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
+               1, // Ticket version
+               UserName, // Username associated with ticket
+               DateTime.Now, // Date/time issued
+               DateTime.Now.AddMinutes(60), // Date/time to expire
+               true, // "true" for a persistent user cookie
+               UserName // User-data, in this case the roles
+              );
+
+                string hash = FormsAuthentication.Encrypt(ticket);
+                HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
+                if (ticket.IsPersistent) cookie.Expires = ticket.Expiration;
+                System.Web.HttpContext.Current.Response.Cookies.Add(cookie);
+                Session["TokenID"] = ticket;
+                return RedirectToAction("Species", "Admin", new { Area = "Admin" });
+            }
+
+            return View();
+        }
+
+        
 
     }
 }

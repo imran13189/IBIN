@@ -7,6 +7,7 @@
       <Diagram DiagramId="88024744a4aa4a8d96f3e09f356f26eb" Name="Diagram1">
         <EntityTypeShape EntityType="IBINModel.Chemical" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="IBINModel.Species" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IBINModel.User" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
