@@ -81,7 +81,7 @@ namespace IBIN.Controllers
             User model= _repo.Login(UserName, Password);
             if(model!=null)
             {
-                FormsAuthentication.SetAuthCookie(model.UserName, true);
+               // FormsAuthentication.SetAuthCookie("LoginCookie", true);
                 FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
                1, // Ticket version
                UserName, // Username associated with ticket
@@ -93,16 +93,53 @@ namespace IBIN.Controllers
 
                 string hash = FormsAuthentication.Encrypt(ticket);
                 HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
-                if (ticket.IsPersistent) cookie.Expires = ticket.Expiration;
+                
                 System.Web.HttpContext.Current.Response.Cookies.Add(cookie);
                 Session["TokenID"] = ticket;
                 return RedirectToAction("Species", "Admin", new { Area = "Admin" });
             }
 
-            return View();
+            return RedirectToAction("Index");
         }
 
-        
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+          
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult ChangePassword(string OldPassword,string NewPassword)
+        {
+            UserRepository repo = new UserRepository();
+            if(repo.ChangePassword(OldPassword, NewPassword)==null)
+            {
+                ViewBag.Message = "Old password is wrong";
+            }
+            else
+            {
+                ViewBag.Message = "Password has been changed";
+            }
+            return View();
+
+        }
+
+        public ActionResult LogOut()
+        {
+            Session.Abandon();
+            // Delete the authentication ticket and sign out.
+            FormsAuthentication.SignOut();
+            // Clear authentication cookie.
+            HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, "");
+            cookie.Expires = DateTime.Now.AddYears(-1);
+            Response.Cookies.Add(cookie);
+            return RedirectToAction("Index", "Admin");
+        }
+
+
+
 
     }
 }

@@ -13,5 +13,16 @@ namespace IBIN.BLL
         {
            return _db.Users.FirstOrDefault(x => x.UserName == Username && x.Password == Password);
         }
+
+        public User ChangePassword(string OldPassword,string NewPassword)
+        {
+            User user=_db.Users.FirstOrDefault(x => x.UserName == "Admin" && x.Password == OldPassword);
+            if (user != null)
+            {
+                user.Password = NewPassword;
+                _db.SaveChanges();
+            }
+            return user;
+        }
     }
 }
