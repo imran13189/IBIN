@@ -22,7 +22,7 @@ namespace IBIN.API
             try
             {
                 SpeciesRepository _repo = new SpeciesRepository();
-                model.data = _repo.GetSpecies();
+                model.data = _repo.GetSpecies(model.search.value);
                 var data = model.data.OrderBy(x => x.SpeciesId).Skip(model.start).Take(model.length);
                 return Json(new
                 {

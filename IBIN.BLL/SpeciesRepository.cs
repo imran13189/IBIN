@@ -30,11 +30,16 @@ namespace IBIN.BLL
             _db.Species.Remove(model);
             return model;
         }
-        public List<Species> GetSpecies()
+        public List<Species> GetSpecies(string search)
         {
             try
             {
-                return _db.Species.ToList();
+                List<Species> data = _db.Species.ToList(); ;
+                if (!string.IsNullOrEmpty(search))
+                {
+                  data = _db.Species.Where(x => x.SpeciesName.Contains(search)).ToList();
+                }
+                return data;
             }
             catch(Exception e)
             {
