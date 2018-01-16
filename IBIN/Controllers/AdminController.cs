@@ -8,6 +8,7 @@ using IBIN.DAL;
 using IBIN.BLL;
 using System.Web.Security;
 using IBIN.Filters;
+using System.Security.Principal;
 
 namespace IBIN.Controllers
 {
@@ -81,22 +82,8 @@ namespace IBIN.Controllers
             User model= _repo.Login(UserName, Password);
             if(model!=null)
             {
-               // FormsAuthentication.SetAuthCookie("LoginCookie", true);
-                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
-               1, // Ticket version
-               UserName, // Username associated with ticket
-               DateTime.Now, // Date/time issued
-               DateTime.Now.AddMinutes(60), // Date/time to expire
-               true, // "true" for a persistent user cookie
-               UserName // User-data, in this case the roles
-              );
-
-                string hash = FormsAuthentication.Encrypt(ticket);
-                HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
-                
-                System.Web.HttpContext.Current.Response.Cookies.Add(cookie);
-                Session["TokenID"] = ticket;
-                return RedirectToAction("Species", "Admin", new { Area = "Admin" });
+                FormsAuthentication.SetAuthCookie(UserName, false);
+                return RedirectToAction("Species", "Admin");
             }
 
             return RedirectToAction("Index");
@@ -126,15 +113,13 @@ namespace IBIN.Controllers
 
         }
 
+
         public ActionResult LogOut()
         {
-            Session.Abandon();
-            // Delete the authentication ticket and sign out.
+            //Session.Abandon();
             FormsAuthentication.SignOut();
-            // Clear authentication cookie.
-            HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, "");
-            cookie.Expires = DateTime.Now.AddYears(-1);
-            Response.Cookies.Add(cookie);
+            //System.Web.HttpContext.Current.User = new GenericPrincipal(new GenericIdentity(string.Empty), null);
+                
             return RedirectToAction("Index", "Admin");
         }
 

@@ -14,7 +14,7 @@ namespace IBIN.Filters
         {
             try
             {
-                if(!HttpContext.Current.Request.IsAuthenticated)
+                if(!HttpContext.Current.User.Identity.IsAuthenticated)
                 //if (BuildersAlliances.Common.SessionManager.LoggedInUser.RoleId==null)
                 {
                     if (!HttpContext.Current.Response.IsRequestBeingRedirected)
