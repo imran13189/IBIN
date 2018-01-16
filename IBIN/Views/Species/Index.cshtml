@@ -37,15 +37,15 @@
 
 <script>
     $(document).ready(function () {
-        PagerClick(1,'');
+        PagerClick(1);
         $("#txtscientific").keyup(function () {
-            PagerClick(1, $(this).val());
+            PagerClick(1);
 
         });
     });
 
-    function PagerClick(i,search) {
-        var search = {value:search}
+    function PagerClick(i) {
+        var search = { value: $("#txtscientific").val() }
         var request = { draw: i, start: (i - 1) * 12, length: 12, search: search };
         $.ajax({
             type: "POST",
