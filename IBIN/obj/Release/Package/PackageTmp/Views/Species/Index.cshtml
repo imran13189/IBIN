@@ -6,7 +6,7 @@
 
             <form>
                 <label>Scientific name</label>
-                <input type="text">
+                <input type="text" id="txtscientific">
 
                 <label>Scientific name</label>
                 <input type="text">
@@ -37,11 +37,16 @@
 
 <script>
     $(document).ready(function () {
-      PagerClick(1);
+        PagerClick(1);
+        $("#txtscientific").keyup(function () {
+            PagerClick(1);
+
+        });
     });
 
     function PagerClick(i) {
-        var request = { draw: i, start: (i-1) * 12, length: 12 }
+        var search = { value: $("#txtscientific").val() }
+        var request = { draw: i, start: (i - 1) * 12, length: 12, search: search };
         $.ajax({
             type: "POST",
             url: $_GetSpecies,
