@@ -51,6 +51,7 @@
         } catch (e) {
             console.log('Regex failed!', e);
         }
+
     });
         // When the carousel slides, auto update the text
         $('#myCarousel').on('slid.bs.carousel', function (e) {
@@ -233,9 +234,9 @@
                         <div class="collapse navbar-collapse" id="my_navbar">
                             <ul class="nav navbar-nav pull-right ">
                                 <li class="active"><a href="#">Home</a></li>
-                                <li><a href="@Url.Action("Species","Admin")">Species</a></li>
+                                @*<li><a href="@Url.Action("Species","Admin")">Species</a></li>
                                 <li><a href="@Url.Action("Chemical","Admin")">Chemical</a></li>
-                                <li><a href="@Url.Action("ChangePassword","Admin")">Change Password</a></li>
+                                <li><a href="@Url.Action("ChangePassword","Admin")">Change Password</a></li>*@
                                 <li><a href="@Url.Action("LogOut","Admin")">Log out</a></li>
 
                             </ul>
@@ -248,9 +249,108 @@
 
     <div class="container-fluid">
         <div class="container">
-          
-                @RenderBody()
-               
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <!--middle_menu_start-->
+
+
+
+                    <nav class="main-nav">
+                        <ul class="main-nav-ul">
+                            <li class="has-sub">
+                                <a href="#">PASSWORD<span class="sub-arrow"></span></a>
+                                <ul class="sub_menu_tax">
+                                    <li><a href="@Url.Action("ChangePassword","Admin")">CHNAGE PASSWORD</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="has-sub">
+                                <a href="#">HOME<span class="sub-arrow"></span></a>
+                                <ul class="sub_menu_tax">
+                                    <li><a href="@Url.Action("Index","Admin")">list</a></li>
+
+                                </ul>
+                            </li>
+
+                            <li class="has-sub">
+                                <a href="#">ABOUT US<span class="sub-arrow"></span></a>
+                                <ul class="sub_menu_tax">
+                                    <li><a href="#">DEMO1</a></li>
+
+
+                                </ul>
+                            </li>
+                            <li class="has-sub">
+                                <a href="#">SERVICES<span class="sub-arrow"></span></a>
+                                <ul class="sub_menu_tax">
+                                    <li><a href="#">DEMO1</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-sub">
+                                <a href="#">PORTFOLIO<span class="sub-arrow"></span></a>
+                                <ul class="sub_menu_tax">
+                                    <li><a href="#">DEMO1</a></li>
+                                </ul>
+
+                            </li>
+
+
+
+
+                            <li class="has-sub">
+                                <a href="#">BLOG<span class="sub-arrow"></span></a>
+                                <ul class="sub_menu_tax">
+                                    <li><a href="#">DEMO1</a></li>
+                                </ul>
+
+                            </li>
+
+
+                            <li class="has-sub">
+                                <a href="#">CONTACT<span class="sub-arrow"></span></a>
+                                <ul class="sub_menu_tax">
+                                    <li><a href="#">DEMO1</a></li>
+                                </ul>
+
+                            </li>
+
+                        </ul>
+                    </nav>
+
+
+
+                    <!--middle_menu_end-->
+
+
+
+
+
+                </div>
+
+
+                <div class="col-sm-8 col-xs-12">
+
+                    <!--Admin_pages_start-->
+
+
+                    
+                
+                    @RenderBody()
+
+
+
+
+                    
+
+                    <!--Admin_pages_end-->
+                    <!--col-end-->
+
+
+                </div>
+
+
+            </div>
+             
             </div>
         </div>
 

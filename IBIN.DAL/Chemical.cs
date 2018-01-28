@@ -17,5 +17,6 @@ namespace IBIN.DAL
         public int ChemicalId { get; set; }
         public string ChemicalName { get; set; }
         public string FileName { get; set; }
+        public bool IsActive { get; set; }
     }
 }

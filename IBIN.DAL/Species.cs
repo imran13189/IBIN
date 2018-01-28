@@ -17,5 +17,6 @@ namespace IBIN.DAL
         public int SpeciesId { get; set; }
         public string SpeciesName { get; set; }
         public string FileName { get; set; }
+        public bool IsActive { get; set; }
     }
 }

@@ -14,16 +14,16 @@ using IBIN.BLL;
 
 namespace IBIN.API
 {
-    public class SpeciesAPIController : ApiController
+    public class ChemicalAPIController : ApiController
     {
         [HttpPost]
-        public dynamic GetSpecies([FromBody]DataTableRequest<Species> model)
+        public dynamic GetChemical([FromBody]DataTableRequest<Chemical> model)
         {
             try
             {
-                SpeciesRepository _repo = new SpeciesRepository();
-                model.data = _repo.GetSpecies(model.search.value,model.IsHome);
-                var data = model.data.OrderBy(x => x.SpeciesId).Skip(model.start).Take(model.length);
+                ChemicalRepository _repo = new ChemicalRepository();
+                model.data = _repo.GetChemical(model.search.value);
+                var data = model.data.OrderBy(x => x.ChemicalId).Skip(model.start).Take(model.length);
                 return Json(new
                 {
                     // this is what datatables wants sending back

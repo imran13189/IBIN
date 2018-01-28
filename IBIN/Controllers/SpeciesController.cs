@@ -18,7 +18,7 @@ namespace IBIN.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult SpeciesList(DataTableRequest model)
+        public PartialViewResult SpeciesList(DataTableRequest<Species> model)
         {
             try
             {
@@ -31,6 +31,10 @@ namespace IBIN.Controllers
             {
                 throw e;
             }
+        }
+        public ActionResult Description()
+        {
+            return View();
         }
     }
 }

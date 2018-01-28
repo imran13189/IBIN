@@ -49,7 +49,7 @@
         var request = { draw: i, start: (i - 1) * 12, length: 12, search: search,IsHome:true };
         $.ajax({
             type: "POST",
-            url: $_GetSpecies,
+            url: $_GetChemical,
             data: request,
             success: function (resultdata) {
                 GetListPage(resultdata)
@@ -60,7 +60,7 @@
     function GetListPage(model) {
         $.ajax({
             type: "POST",
-            url: $_GetSpeciesList,
+            url: $_GetChemicalList,
             data: { model: model },
             success: function (resultdata) {
                 $("#gallery").html(resultdata);

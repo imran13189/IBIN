@@ -7,7 +7,7 @@ using IBIN.DAL;
 
 namespace IBIN.CORE.Models
 {
-    public class DataTableRequest
+    public class DataTableRequest<T>
     {
         public int draw { get; set; }
         public int start { get; set; }
@@ -15,9 +15,10 @@ namespace IBIN.CORE.Models
         public List<Column> columns { get; set; }
         public Search search { get; set; }
 
-        public List<Species> data { get; set; }
+        public List<T> data { get; set; }
 
         public int recordsTotal { get; set; }
+        public bool IsHome { get; set; }
     }
 
     public class Column
@@ -34,4 +35,5 @@ namespace IBIN.CORE.Models
         public string value { get; set; }
         public string regex { get; set; }
     }
+   
 }

@@ -12,6 +12,7 @@ using System.Security.Principal;
 
 namespace IBIN.Controllers
 {
+    [Authenticated]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -72,22 +73,69 @@ namespace IBIN.Controllers
                 }
 
             }
-            return RedirectToAction("Species");
-        }
-
-        [HttpPost]
-        public ActionResult Login(string UserName, string Password)
-        {
-            UserRepository _repo = new UserRepository();
-            User model= _repo.Login(UserName, Password);
-            if(model!=null)
-            {
-                FormsAuthentication.SetAuthCookie(UserName, false);
-                return RedirectToAction("Species", "Admin");
-            }
-
+            TempData["catergoryType"] = "Species";
             return RedirectToAction("Index");
         }
+
+
+        [Authenticated]
+        public ActionResult Chemical()
+        {
+            return View();
+        }
+        [Authenticated]
+        public ActionResult AddChemical(int id = 0)
+        {
+            if (id > 0)
+            {
+                return View(new SpeciesRepository().GetSpeciesDetail(id));
+            }
+            return View();
+        }
+
+        [Authenticated]
+        [HttpPost]
+        public ActionResult AddChemical(Chemical model, HttpPostedFileBase SpeciesFile)
+        {
+            ChemicalRepository _repo = new ChemicalRepository();
+            model = _repo.AddChemical(model);
+            String nFileName = "";//, nLicenseCopy = "", nInsuranceCopy = "", nOtherAttachment = "";
+            if ((SpeciesFile != null) && (SpeciesFile.ContentLength > 0))
+            {
+                if (!(Directory.Exists(Server.MapPath("~/UploadedFiles/SpeciesFile"))))
+                {
+                    Directory.CreateDirectory(Server.MapPath("~/UploadedFiles/SpeciesFile"));
+                }
+
+                if ((SpeciesFile != null) && (SpeciesFile.ContentLength > 0))
+                {
+                    string extension = Path.GetExtension(SpeciesFile.FileName);
+                    nFileName = "PC_" + model.ChemicalId + extension;
+                    var DirectoryPath = Server.MapPath("~/UploadedFiles/SpeciesFile");
+                    var path = Path.Combine(DirectoryPath, System.IO.Path.GetFileName(nFileName));
+
+                    DirectoryInfo dInfo = new DirectoryInfo(DirectoryPath);
+
+                    foreach (FileInfo dfile in dInfo.GetFiles())
+                    {
+                        if (dfile.Name == nFileName)
+                        {
+                            dfile.Delete();
+                            break;
+                        }
+
+                    }
+                    SpeciesFile.SaveAs(path);
+                    model.FileName = nFileName;
+                    _repo.AddChemical(model);
+                }
+
+            }
+            TempData["catergoryType"] = "Chemical";
+            return RedirectToAction("Index");
+        }
+
+        
 
         [HttpGet]
         public ActionResult ChangePassword()
@@ -123,8 +171,20 @@ namespace IBIN.Controllers
             return RedirectToAction("Index", "Admin");
         }
 
+      
+        public ActionResult IsActiveSpecies(int id)
+        {
+            SpeciesRepository _repo = new SpeciesRepository();
+            _repo.IsActive(id);
+            return Json(true);
+        }
 
-
+        public ActionResult IsActiveChemical(int id)
+        {
+            ChemicalRepository _repo = new ChemicalRepository();
+            _repo.IsActive(id);
+            return Json(true);
+        }
 
     }
 }

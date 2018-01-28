@@ -1,0 +1,92 @@
+﻿
+
+@{
+    Layout = null;
+    ViewBag.Title = "Chemical";
+}
+
+
+<h2>Chemical</h2>
+
+<div class="row">
+    @Html.ActionLink("Add Chemical","AddChemical", "Admin")
+    </div>
+    <div class="row">
+        <table id="chemical" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Chemical name</th>
+                    <th>File</th>
+                    <th>IsActive</th>
+                    <th>Edit</th>
+
+                </tr>
+            </thead>
+
+        </table>
+
+        <script>
+            var table;
+    $(document).ready(function () {
+        table=     $('#chemical').DataTable({
+
+            "proccessing": true,
+            "serverSide": true,
+            "ajax": {
+                "url": $_GetChemical,
+                "type": 'POST'
+            },
+                "language": {
+                    "search": "",
+                    "searchPlaceholder": "Search..."
+                },
+            "columns": [
+                 { "data": "ChemicalName" },
+                 { "data": "FileName" },
+                  {
+                      "data": "IsActive",
+                      "render": function (data, type, row) {
+                          if (row.IsActive === true) {
+                              return '<input type="checkbox" checked class="chkBox">';
+                          }
+                          else {
+                              return '<input type="checkbox"  class="chkBox">';
+                          }
+                          return data;
+                      }
+                  },
+                 {
+                     "data": "ChemicalId", "render": function (data, type, row) {
+
+                         return '<a href="/Admin/AddChemical/' + row.ChemicalId + '">Edit</a>';
+                     }
+                 },
+
+],
+
+       
+
+
+        });
+
+        $('#chemical tbody').on('click', 'tr', function () {
+
+            var $row = $(this).closest('tr');
+            var data = table.row($row).data();
+
+            $.ajax({
+                type: "GET",
+                url: $_IsActiveChemical+'/'+data.ChemicalId,
+                //data: request,
+                success: function (resultdata) {
+                    table.ajax.reload();
+                }
+            });
+
+           
+
+        });
+    });
+        </script>
+    </div>
+

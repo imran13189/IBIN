@@ -1,10 +1,16 @@
 ﻿<script>
     /*-----------------------------Manufacturer---------------------------------*/
     $_GetSpeciesList = "@Url.Action("SpeciesList", "Species")";
-    
 
+
+    $_Species = "@Url.Action("Species", "Admin")";
+    $_Chemical = "@Url.Action("Chemical", "Admin")";
 
     $_GetSpecies = "@Url.HttpRouteUrl("DefaultApi", new { controller= "SpeciesAPI", action= "GetSpecies" })"
+    $_GetChemical = "@Url.HttpRouteUrl("DefaultApi", new { controller= "ChemicalAPI", action= "GetChemical" })"
+
+    $_IsActiveSpecies = "@Url.Action("IsActiveSpecies", "Admin")";
+    $_IsActiveChemical = "@Url.Action("IsActiveChemical", "Admin")";
 
 
 </script>

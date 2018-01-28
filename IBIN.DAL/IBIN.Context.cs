@@ -25,8 +25,8 @@ namespace IBIN.DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Chemical> Chemicals { get; set; }
         public virtual DbSet<Species> Species { get; set; }
-        public virtual DbSet<User> Users { get; set; }
     }
 }

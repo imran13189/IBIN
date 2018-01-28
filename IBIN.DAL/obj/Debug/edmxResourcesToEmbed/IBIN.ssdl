@@ -7,6 +7,7 @@
     <Property Name="ChemicalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ChemicalName" Type="varchar" MaxLength="255" />
     <Property Name="FileName" Type="varchar" MaxLength="255" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Species">
     <Key>
@@ -15,6 +16,7 @@
     <Property Name="SpeciesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SpeciesName" Type="varchar" MaxLength="255" />
     <Property Name="FileName" Type="varchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>

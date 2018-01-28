@@ -12,6 +12,7 @@
           <Property Name="ChemicalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ChemicalName" Type="varchar" MaxLength="255" />
           <Property Name="FileName" Type="varchar" MaxLength="255" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Species">
           <Key>
@@ -20,6 +21,7 @@
           <Property Name="SpeciesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SpeciesName" Type="varchar" MaxLength="255" />
           <Property Name="FileName" Type="varchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -38,26 +40,10 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="IBINModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Chemical">
-          <Key>
-            <PropertyRef Name="ChemicalId" />
-          </Key>
-          <Property Name="ChemicalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ChemicalName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Species">
-          <Key>
-            <PropertyRef Name="SpeciesId" />
-          </Key>
-          <Property Name="SpeciesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SpeciesName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityContainer Name="IBINEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Chemicals" EntityType="Self.Chemical" />
-          <EntitySet Name="Species" EntityType="Self.Species" />
           <EntitySet Name="Users" EntityType="IBINModel.User" />
+          <EntitySet Name="Chemicals" EntityType="IBINModel.Chemical" />
+          <EntitySet Name="Species" EntityType="IBINModel.Species" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -67,36 +53,56 @@
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Chemical">
+          <Key>
+            <PropertyRef Name="ChemicalId" />
+          </Key>
+          <Property Name="ChemicalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChemicalName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Species">
+          <Key>
+            <PropertyRef Name="SpeciesId" />
+          </Key>
+          <Property Name="SpeciesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpeciesName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="IBINModelStoreContainer" CdmEntityContainer="IBINEntities">
-          <EntitySetMapping Name="Chemicals">
-            <EntityTypeMapping TypeName="IBINModel.Chemical">
-              <MappingFragment StoreEntitySet="Chemical">
-                <ScalarProperty Name="ChemicalId" ColumnName="ChemicalId" />
-                <ScalarProperty Name="ChemicalName" ColumnName="ChemicalName" />
-                <ScalarProperty Name="FileName" ColumnName="FileName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Species">
-            <EntityTypeMapping TypeName="IBINModel.Species">
-              <MappingFragment StoreEntitySet="Species">
-                <ScalarProperty Name="SpeciesId" ColumnName="SpeciesId" />
-                <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
-                <ScalarProperty Name="FileName" ColumnName="FileName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="IBINModel.User">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chemicals">
+            <EntityTypeMapping TypeName="IBINModel.Chemical">
+              <MappingFragment StoreEntitySet="Chemical">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="ChemicalName" ColumnName="ChemicalName" />
+                <ScalarProperty Name="ChemicalId" ColumnName="ChemicalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Species">
+            <EntityTypeMapping TypeName="IBINModel.Species">
+              <MappingFragment StoreEntitySet="Species">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
+                <ScalarProperty Name="SpeciesId" ColumnName="SpeciesId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

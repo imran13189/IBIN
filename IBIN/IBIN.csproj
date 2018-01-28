@@ -137,12 +137,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ChemicalAPIController.cs" />
     <Compile Include="API\SpeciesAPIController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ChemicalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SpeciesController.cs" />
     <Compile Include="Filters\Authenticated.cs" />
@@ -259,8 +262,16 @@
     <Content Include="Views\Species\Index.cshtml" />
     <Content Include="Views\Species\_SpeciesList.cshtml" />
     <Content Include="Views\Shared\_UrlVariablesAdmin.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\ChangePassword.cshtml" />
+    <Content Include="Views\Home\Description.cshtml" />
+    <Content Include="Views\Species\Description.cshtml" />
+    <Content Include="Views\Admin\AddChemical.cshtml" />
+    <Content Include="Views\Admin\Chemical.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Chemical\_ChemicalList.cshtml" />
+    <Content Include="Views\Chemical\Description.cshtml" />
+    <Content Include="Views\Chemical\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

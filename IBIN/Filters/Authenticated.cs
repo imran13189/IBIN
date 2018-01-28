@@ -19,7 +19,7 @@ namespace IBIN.Filters
                 {
                     if (!HttpContext.Current.Response.IsRequestBeingRedirected)
                     {
-                        HttpContext.Current.Response.Redirect("~/Admin");
+                        HttpContext.Current.Response.Redirect("~/Account");
                     }
                 }
             }

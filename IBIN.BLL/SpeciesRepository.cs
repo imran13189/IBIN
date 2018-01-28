@@ -30,7 +30,7 @@ namespace IBIN.BLL
             _db.Species.Remove(model);
             return model;
         }
-        public List<Species> GetSpecies(string search)
+        public List<Species> GetSpecies(string search,bool IsHome)
         {
             try
             {
@@ -38,6 +38,10 @@ namespace IBIN.BLL
                 if (!string.IsNullOrEmpty(search))
                 {
                   data = _db.Species.Where(x => x.SpeciesName.Contains(search)).ToList();
+                }
+                if(IsHome)
+                {
+                    data = data.Where(x => x.IsActive).ToList();
                 }
                 return data;
             }
@@ -51,6 +55,14 @@ namespace IBIN.BLL
         public Species GetSpeciesDetail(int SpeciesId)
         {
             return _db.Species.FirstOrDefault(x => x.SpeciesId == SpeciesId);
+        }
+
+        public Species IsActive(int id)
+        {
+            var data = _db.Species.FirstOrDefault(x => x.SpeciesId == id);
+            data.IsActive = data.IsActive ? false : true;
+            _db.SaveChanges();
+            return data;
         }
     }
 }
