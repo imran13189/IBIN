@@ -1,7 +1,7 @@
 ﻿
 
 @{
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = null;
     ViewBag.Title = "Species";
 }
 
@@ -9,12 +9,13 @@
 <div class="row">
     @Html.ActionLink("AddSpecies","AddSpecies", "Admin")
     </div>
-    <div class="row">
+<div class="row">
         <table id="species" class="display" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>First name</th>
-                    <th>Last name</th>
+                    <th>Species Name</th>
+                    <th>File</th>
+                    <th>Is Active</th>
                     <th>Edit</th>
 
                 </tr>
@@ -22,9 +23,13 @@
 
         </table>
 
-        <script>
+      
+    </div>
+
+<script>
+    var table;
     $(document).ready(function () {
-        $('#species').dataTable({
+       table= $('#species').DataTable({
 
             "proccessing": true,
             "serverSide": true,
@@ -40,6 +45,19 @@
                  { "data": "SpeciesName" },
                  { "data": "FileName" },
                  {
+                     "data": "IsActive",
+                     "render": function(data, type, row ) {
+                                    if ( row.IsActive === true ) {
+                                        return '<input type="checkbox" checked class="chkBox">';
+                                    }
+                                    else
+                                    {
+                                        return '<input type="checkbox"  class="chkBox">';
+                                    }
+                                return data;
+                                }               
+                 },
+                 {
                      "data": "SpeciesId", "render": function (data, type, row) {
 
                          return '<a href="/Admin/AddSpecies/' + row.SpeciesId + '">Edit</a>';
@@ -47,9 +65,34 @@
                  },
 ],
 
-       
-        });
-    });
-        </script>
-    </div>
 
+       });
+
+       $('#species tbody').on('click', 'tr', function (e) {
+           debugger;
+           var $row = $(this).closest('tr');
+           var data = table.row($row).data();
+           
+           // Get row ID
+           var rowId = data.SpeciesId;
+               $.ajax({
+                   type: "GET",
+                   url: $_IsActiveSpecies+'/'+rowId,
+                   //data: request,
+                   success: function (resultdata) {
+                       table.ajax.reload();
+                   }
+               });
+       });
+
+        //$(document).on('click', '.chkBox', function () {
+
+          
+
+      
+
+          
+
+        //});
+    });
+</script>

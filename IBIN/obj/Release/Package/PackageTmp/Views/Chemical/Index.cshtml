@@ -1,0 +1,71 @@
+﻿
+<div class="row">
+    <div class="col-sm-3">
+        <div class="lt-cnt">
+            <h5>Specific Search</h5>
+
+            <form>
+                <label>Scientific name</label>
+                <input type="text" id="txtscientific">
+
+                <label>Scientific name</label>
+                <input type="text">
+
+                <label>Scientific name</label>
+                <input type="text">
+            </form>
+        </div>
+    </div>
+
+
+    <!-- start_gallery-->
+
+
+
+    <div class="col-sm-9" id="gallery">
+
+
+       
+
+        
+    </div>
+
+    <!--end_gallery-->
+
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        PagerClick(1);
+        $("#txtscientific").keyup(function () {
+            PagerClick(1);
+
+        });
+    });
+
+    function PagerClick(i) {
+        var search = { value: $("#txtscientific").val() }
+        var request = { draw: i, start: (i - 1) * 12, length: 12, search: search,IsHome:true };
+        $.ajax({
+            type: "POST",
+            url: $_GetChemical,
+            data: request,
+            success: function (resultdata) {
+                GetListPage(resultdata)
+            }
+        });
+    }
+
+    function GetListPage(model) {
+        $.ajax({
+            type: "POST",
+            url: $_GetChemicalList,
+            data: { model: model },
+            success: function (resultdata) {
+                $("#gallery").html(resultdata);
+            }
+        });
+    }
+</script>
+

@@ -1,13 +1,12 @@
-﻿@model IBIN.CORE.Models.DataTableRequest
+﻿@model IBIN.CORE.Models.DataTableRequest<IBIN.DAL.Species>
 
 @{
     Layout = null;
 }
 
-<div class="col-lg-12" style="border-bottom:1px solid #ccc; ">
-    <h2 class="gallery_spcies ">Species List</h2>
-</div>
 
+@if (Model.data!=null)
+{
 <div class="col-lg-12" >
     @foreach (var item in Model.data)
     {
@@ -17,7 +16,7 @@
 
                 <a herf="#">
                     <img class="img-responsive" height="195px" width="165px" src="~/UploadedFiles/SpeciesFile/@item.FileName" style="border: 10px solid #ddd;" />
-                    <h4 class="punica">@item.SpeciesName</h4>
+                    <h4 class="punica"><a href="@Url.Action("Description", "Species")">@item.SpeciesName</a></h4>
                 </a>
             </div>
         </div>
@@ -29,29 +28,35 @@
     <div class="col-lg-12">
         <div style="float: right;">
             <ul class="pagination">
-                @for (int i = 1; i <= ViewBag.PageCount; i++)
-            {
+                <li><a href="javascript:PagerClick(@(Model.draw == 1 ? 1 : Model.draw - 1));"><<</a></li>
+                @for (int i = Model.draw == 1 ? 1 : Model.draw == ViewBag.PageCount ? Model.draw - 10 : Model.draw + 1; i <= (Model.draw == ViewBag.PageCount ? Model.draw : Model.draw + 10); i++)
+                {
 
                     if (i != ViewBag.CurrentPageIndex)
                     {
 
             <li><a href="javascript:PagerClick(@i);">@i</a></li>
-                }
-                else
-                {
+                    }
+                    else
+                    {
             <li><a href="javascript:PagerClick(@i);">@i</a></li>
-                }
+                    }
 
-            }
+                }
+                <li><a href="javascript:PagerClick(@(Model.draw == Model.recordsTotal ? Model.draw : Model.draw + 11));" disabled="@(Model.draw == ViewBag.PageCount ? true : false)" >>></a></li>
             </ul>
         </div>
     </div>
 
+}
+else
+{
+    <div class="col-lg-12">No record found</div>
+}
+        <script>
+            $(document).ready(function () {
 
-    <script>
-        $(document).ready(function () {
-
-        });
+            });
 
 
-    </script>
+        </script>

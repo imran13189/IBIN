@@ -1,0 +1,59 @@
+﻿@model IBIN.CORE.Models.DataTableRequest<IBIN.DAL.Chemical>
+
+@{
+    Layout = null;
+}
+
+<div class="col-lg-12" style="border-bottom:1px solid #ccc; ">
+    <h2 class="gallery_spcies ">Chemical List</h2>
+</div>
+
+<div class="col-lg-12" >
+    @foreach (var item in Model.data)
+    {
+
+        <div class="col-sm-3 col-xs-6">
+            <div class="zoom">
+
+                <a herf="#">
+                    <img class="img-responsive" height="195px" width="165px" src="~/UploadedFiles/SpeciesFile/@item.FileName" style="border: 10px solid #ddd;" />
+                    <h4 class="punica"><a href="@Url.Action("Description","Species")">@item.ChemicalName</a></h4>
+                </a>
+            </div>
+        </div>
+    }
+
+    </div>
+
+
+    <div class="col-lg-12">
+        <div style="float: right;">
+            <ul class="pagination">
+                <li><a href="javascript:PagerClick(@(Model.draw==1?1:Model.draw-1));"><<</a></li>
+                @for (int i = Model.draw == 1 ? 1 : Model.draw == ViewBag.PageCount?Model.draw-10: Model.draw + 1; i <= (Model.draw==ViewBag.PageCount ? Model.draw:Model.draw+10  ); i++)
+                {
+
+                    if (i != ViewBag.CurrentPageIndex)
+                    {
+
+            <li><a href="javascript:PagerClick(@i);">@i</a></li>
+                }
+                else
+                {
+            <li><a href="javascript:PagerClick(@i);">@i</a></li>
+                }
+
+            }
+                <li><a href="javascript:PagerClick(@(Model.draw==Model.recordsTotal?Model.draw:Model.draw+11));" disabled="@(Model.draw==ViewBag.PageCount?true:false)" >>></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+
+        });
+
+
+    </script>

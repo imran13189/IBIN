@@ -167,6 +167,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\giphy.gif" />
     <Content Include="Content\images\ibinImages\404-Page.png" />
     <Content Include="Content\images\ibinImages\bg-heading.png" />
     <Content Include="Content\images\ibinImages\bg-improvelifestyle.png" />

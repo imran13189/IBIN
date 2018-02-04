@@ -1,30 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="IBINModelStoreContainer" CdmEntityContainer="IBINEntities">
-    <EntitySetMapping Name="Chemicals">
-      <EntityTypeMapping TypeName="IBINModel.Chemical">
-        <MappingFragment StoreEntitySet="Chemical">
-          <ScalarProperty Name="ChemicalId" ColumnName="ChemicalId" />
-          <ScalarProperty Name="ChemicalName" ColumnName="ChemicalName" />
-          <ScalarProperty Name="FileName" ColumnName="FileName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Species">
-      <EntityTypeMapping TypeName="IBINModel.Species">
-        <MappingFragment StoreEntitySet="Species">
-          <ScalarProperty Name="SpeciesId" ColumnName="SpeciesId" />
-          <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
-          <ScalarProperty Name="FileName" ColumnName="FileName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="IBINModel.User">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chemicals">
+      <EntityTypeMapping TypeName="IBINModel.Chemical">
+        <MappingFragment StoreEntitySet="Chemical">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ChemicalName" ColumnName="ChemicalName" />
+          <ScalarProperty Name="ChemicalId" ColumnName="ChemicalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Species">
+      <EntityTypeMapping TypeName="IBINModel.Species">
+        <MappingFragment StoreEntitySet="Species">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
+          <ScalarProperty Name="SpeciesId" ColumnName="SpeciesId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

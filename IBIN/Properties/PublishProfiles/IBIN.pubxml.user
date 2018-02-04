@@ -19,16 +19,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/02/2015 22:02:26</publishTime>
     </File>
     <File Include="bin/IBIN.BLL.dll">
-      <publishTime>01/21/2018 00:52:38</publishTime>
+      <publishTime>01/28/2018 18:55:58</publishTime>
     </File>
     <File Include="bin/IBIN.CORE.dll">
-      <publishTime>01/21/2018 00:52:38</publishTime>
+      <publishTime>01/28/2018 18:55:57</publishTime>
     </File>
     <File Include="bin/IBIN.DAL.dll">
-      <publishTime>01/21/2018 00:52:37</publishTime>
+      <publishTime>01/28/2018 18:55:57</publishTime>
     </File>
     <File Include="bin/IBIN.dll">
-      <publishTime>01/21/2018 00:52:47</publishTime>
+      <publishTime>02/04/2018 14:32:21</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>06/15/2015 02:06:24</publishTime>
@@ -164,6 +164,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Content/fonts/glyphicons-halflings-regular.woff">
       <publishTime>12/18/2017 13:47:30</publishTime>
+    </File>
+    <File Include="Content/images/giphy.gif">
+      <publishTime>02/04/2018 12:21:32</publishTime>
     </File>
     <File Include="Content/images/ibinImages/404-Page.png">
       <publishTime>12/18/2017 17:13:38</publishTime>
@@ -372,17 +375,35 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/_references.js">
       <publishTime>01/07/2018 00:51:25</publishTime>
     </File>
+    <File Include="Views/Account/Index.cshtml">
+      <publishTime>01/28/2018 12:00:29</publishTime>
+    </File>
+    <File Include="Views/Admin/AddChemical.cshtml">
+      <publishTime>01/28/2018 13:39:13</publishTime>
+    </File>
     <File Include="Views/Admin/AddSpecies.cshtml">
       <publishTime>01/07/2018 12:44:33</publishTime>
     </File>
     <File Include="Views/Admin/ChangePassword.cshtml">
       <publishTime>01/12/2018 23:12:58</publishTime>
     </File>
+    <File Include="Views/Admin/Chemical.cshtml">
+      <publishTime>01/28/2018 17:54:40</publishTime>
+    </File>
     <File Include="Views/Admin/Index.cshtml">
-      <publishTime>01/07/2018 16:43:09</publishTime>
+      <publishTime>01/28/2018 15:02:40</publishTime>
     </File>
     <File Include="Views/Admin/Species.cshtml">
-      <publishTime>01/07/2018 12:54:05</publishTime>
+      <publishTime>01/28/2018 17:36:33</publishTime>
+    </File>
+    <File Include="Views/Chemical/Description.cshtml">
+      <publishTime>01/28/2018 18:24:35</publishTime>
+    </File>
+    <File Include="Views/Chemical/Index.cshtml">
+      <publishTime>01/28/2018 18:25:41</publishTime>
+    </File>
+    <File Include="Views/Chemical/_ChemicalList.cshtml">
+      <publishTime>01/28/2018 18:34:56</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>01/06/2018 22:28:31</publishTime>
@@ -390,8 +411,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Home/Contact.cshtml">
       <publishTime>01/06/2018 22:28:31</publishTime>
     </File>
+    <File Include="Views/Home/Description.cshtml">
+      <publishTime>01/25/2018 23:52:21</publishTime>
+    </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>01/07/2018 09:59:09</publishTime>
+      <publishTime>01/28/2018 18:29:06</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>01/06/2018 22:28:31</publishTime>
@@ -400,19 +424,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/07/2018 17:24:32</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAdmin.cshtml">
-      <publishTime>01/17/2018 01:03:27</publishTime>
+      <publishTime>01/28/2018 18:11:14</publishTime>
     </File>
     <File Include="Views/Shared/_UrlVariables.cshtml">
-      <publishTime>01/07/2018 10:35:56</publishTime>
+      <publishTime>01/28/2018 18:33:00</publishTime>
     </File>
     <File Include="Views/Shared/_UrlVariablesAdmin.cshtml">
-      <publishTime>01/07/2018 10:49:40</publishTime>
+      <publishTime>01/28/2018 15:07:39</publishTime>
+    </File>
+    <File Include="Views/Species/Description.cshtml">
+      <publishTime>01/25/2018 23:35:29</publishTime>
     </File>
     <File Include="Views/Species/Index.cshtml">
-      <publishTime>01/17/2018 00:28:32</publishTime>
+      <publishTime>02/04/2018 14:23:44</publishTime>
     </File>
     <File Include="Views/Species/_SpeciesList.cshtml">
-      <publishTime>01/17/2018 00:29:43</publishTime>
+      <publishTime>02/04/2018 14:31:11</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>01/06/2018 22:28:31</publishTime>
