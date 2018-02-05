@@ -8,8 +8,18 @@ namespace IBIN.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string search=" ")
         {
+            string chemical = "chemical";
+            string species = "species";
+            if (chemical.Contains(search.ToLower()))
+            {
+                return RedirectToAction("Index", "Chemical");
+            }
+            else if (species.Contains(search.ToLower()))
+            {
+                return RedirectToAction("Index", "Species");
+            }
             return View();
         }
 

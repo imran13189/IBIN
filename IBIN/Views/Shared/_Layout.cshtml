@@ -31,6 +31,12 @@
               $('.has-sub').click(function () {
                   $(this).toggleClass('tap');
               });
+              $("#btnSearch").click(function () {
+
+                  window.location.href = '@Url.Action("Index","Home")' + "?search=" + $("#txtSearch").val();
+
+
+              });
           });
     </script>
     <script>
@@ -212,10 +218,10 @@
         <div class="container">
             <div class="row ">
                 <div class="col-sm-3 col-xs-8 search ">
-                    <input type="text" class="form-control input-sm">
+                    <input type="text" id="txtSearch" class="form-control input-sm">
                 </div><!--end search-->
                 <div class="col-sm-1 col-xs-4 search ">
-                    <button type="button" class="btn btn-info btn-sm">Search</button>
+                    <button type="button" id="btnSearch" class="btn btn-info btn-sm">Search</button>
 
                 </div>
 
