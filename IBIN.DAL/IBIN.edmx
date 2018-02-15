@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="IBINModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CatergoryName" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="Chemical">
           <Key>
             <PropertyRef Name="ChemicalId" />
@@ -13,6 +20,15 @@
           <Property Name="ChemicalName" Type="varchar" MaxLength="255" />
           <Property Name="FileName" Type="varchar" MaxLength="255" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="255" />
+          <Property Name="FileName" Type="varchar" MaxLength="255" />
+          <Property Name="CategoryId" Type="int" />
         </EntityType>
         <EntityType Name="Species">
           <Key>
@@ -32,7 +48,9 @@
           <Property Name="Password" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityContainer Name="IBINModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Chemical" EntityType="Self.Chemical" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Species" EntityType="Self.Species" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -44,6 +62,8 @@
           <EntitySet Name="Users" EntityType="IBINModel.User" />
           <EntitySet Name="Chemicals" EntityType="IBINModel.Chemical" />
           <EntitySet Name="Species" EntityType="IBINModel.Species" />
+          <EntitySet Name="Categories" EntityType="IBINModel.Category" />
+          <EntitySet Name="Items" EntityType="IBINModel.Item" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -70,6 +90,22 @@
           <Property Name="SpeciesName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatergoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryId" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -103,6 +139,24 @@
                 <ScalarProperty Name="FileName" ColumnName="FileName" />
                 <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
                 <ScalarProperty Name="SpeciesId" ColumnName="SpeciesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="IBINModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CatergoryName" ColumnName="CatergoryName" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="IBINModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

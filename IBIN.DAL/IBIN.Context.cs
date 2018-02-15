@@ -28,5 +28,7 @@ namespace IBIN.DAL
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Chemical> Chemicals { get; set; }
         public virtual DbSet<Species> Species { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
     }
 }
