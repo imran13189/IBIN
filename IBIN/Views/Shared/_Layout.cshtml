@@ -190,6 +190,9 @@
         }
     </style>
 
+
+    
+
     @{ Html.RenderPartial("_UrlVariables");  }
 </head>
 <body class="homepage">
@@ -198,7 +201,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-2 col-xs-3 " style="padding-top:23px;">
-                    <img src="~/Content/images/ibinImages/logo.png" class="img-responsive" />
+                   <a href="@Url.Action("Index","Home")"> <img src="~/Content/images/ibinImages/logo.png" class="img-responsive" /></a>
                 </div>
                 <div class="col-sm-9 col-xs-7 image_center" style="padding-top:42px;">
                     <img src="~/Content/images/ibinImages/title-lblnew.png" class="img-responsive center-block " />

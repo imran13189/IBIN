@@ -17,7 +17,8 @@
 
                 <a herf="#">
                     <img class="img-responsive" height="195px" width="165px" src="~/UploadedFiles/SpeciesFile/@item.FileName" style="border: 10px solid #ddd;" />
-                    <h4 class="punica"><a href="@Url.Action("Description","Species")">@item.ChemicalName</a></h4>
+                    @*<h4 class="punica"><a href="@Url.Action("Description","Species")">@item.ChemicalName</a></h4>*@
+                    <h4 class="punica"><a href="@(Url.Action("Description", "Species")+"?id="+item.ChemicalId+"&option=com_ibin&task=speciedetails")">@item.ChemicalName</a></h4>
                 </a>
             </div>
         </div>
