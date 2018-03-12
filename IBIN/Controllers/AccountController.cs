@@ -24,7 +24,7 @@ namespace IBIN.Controllers
             if (model != null)
             {
                 FormsAuthentication.SetAuthCookie(UserName, false);
-                return RedirectToAction("Species", "Admin");
+                return RedirectToAction("Index", "Admin");
             }
 
             return RedirectToAction("Index");

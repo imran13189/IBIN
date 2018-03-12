@@ -88,7 +88,7 @@ namespace IBIN.Controllers
         {
             if (id > 0)
             {
-                return View(new SpeciesRepository().GetSpeciesDetail(id));
+                return View(new ChemicalRepository().GetChemicalDetails(id));
             }
             return View();
         }
@@ -102,16 +102,16 @@ namespace IBIN.Controllers
             String nFileName = "";//, nLicenseCopy = "", nInsuranceCopy = "", nOtherAttachment = "";
             if ((SpeciesFile != null) && (SpeciesFile.ContentLength > 0))
             {
-                if (!(Directory.Exists(Server.MapPath("~/UploadedFiles/SpeciesFile"))))
+                if (!(Directory.Exists(Server.MapPath("~/UploadedFiles/ChemicalFile"))))
                 {
-                    Directory.CreateDirectory(Server.MapPath("~/UploadedFiles/SpeciesFile"));
+                    Directory.CreateDirectory(Server.MapPath("~/UploadedFiles/ChemicalFile"));
                 }
 
                 if ((SpeciesFile != null) && (SpeciesFile.ContentLength > 0))
                 {
                     string extension = Path.GetExtension(SpeciesFile.FileName);
                     nFileName = "PC_" + model.ChemicalId + extension;
-                    var DirectoryPath = Server.MapPath("~/UploadedFiles/SpeciesFile");
+                    var DirectoryPath = Server.MapPath("~/UploadedFiles/ChemicalFile");
                     var path = Path.Combine(DirectoryPath, System.IO.Path.GetFileName(nFileName));
 
                     DirectoryInfo dInfo = new DirectoryInfo(DirectoryPath);

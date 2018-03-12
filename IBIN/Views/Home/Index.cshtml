@@ -25,8 +25,8 @@
                             <li class="has-sub">
                                 <a href="#">BIORESOURCES<span class="sub-arrow"></span></a>
                                 <ul class="sub_menu_tax">
-                                    <li><a href="@Url.Action("Index","Species")">Species</a></li>
-                                    <li><a href="@Url.Action("Index","Chemical")">Chemical</a></li>
+                                    <li><a href="@(Url.Action("Index","Species")+"?option=com_ibin&task=searchSpecies")">Species</a></li>
+                                    <li><a href="@(Url.Action("Index","Chemical")+"?option=com_ibin&task=searchChemicals")">Chemical</a></li>
                                     <li><a href="#">Prospecting</a></li>
                                     <li><a href="#">Services & Uses</a></li>
 
@@ -79,7 +79,7 @@
                                 <!-- Bottom switcher of slider -->
                                 <ul class="hide-bullets">
                                     <li class="col-md-4 col-sm-6">
-                                        <a class="thumbnail" href="@Url.Action("Index","Species")" id="carousel-selector-16">
+                                        <a class="thumbnail" href="@(Url.Action("Index","Species")+"?option=com_ibin&task=searchSpecies")" id="carousel-selector-16">
                                             <img src="~/Content/images/ibinImages/species-over.jpg" class="img-responsive">
                                         </a>
 
@@ -92,7 +92,7 @@
                                     </li>
 
                                     <li class="col-md-4 col-sm-6">
-                                        <a class="thumbnail" href="@Url.Action("Index","Chemical")" id="carousel-selector-2">
+                                        <a class="thumbnail" href="@(Url.Action("Index","Chemical")+"?option=com_ibin&task=searchChemicals")" id="carousel-selector-2">
                                             <img src="~/Content/images/ibinImages/chemic-over.jpg" class="img-responsive">
                                         </a>
 

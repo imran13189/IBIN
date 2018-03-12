@@ -31,5 +31,9 @@ namespace IBIN.Controllers
                 throw e;
             }
         }
+        public ActionResult Description(int Id)
+        {
+            return View(new ChemicalRepository().GetChemicalDetails(Id));
+        }
     }
 }

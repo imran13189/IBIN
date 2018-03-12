@@ -32,9 +32,9 @@ namespace IBIN.Controllers
                 throw e;
             }
         }
-        public ActionResult Description()
+        public ActionResult Description(int Id)
         {
-            return View();
+            return View(new SpeciesRepository().GetSpeciesDetail(Id));
         }
     }
 }
